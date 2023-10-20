@@ -28,7 +28,26 @@ public class AplikasiTodoList {
     }
 
     // menambah todo ke list
-    public static void addTodoList(){
+    public static void addTodoList(String todo){
+
+        //apakah data penuh?
+        var penuh = true;
+        for (int i = 0; i < model.length; i++){
+            if (model[i] == null){
+                //model masih ada yang kosong
+                penuh = false;
+                break;
+            }
+        }
+
+
+        //tambahkan ke posisi yang data array nya null
+        for (var i = 0; i < model.length; i++){
+            if (model[i] == null) {
+                model[i] = todo;
+                break;
+            }
+        }
 
     }
 
