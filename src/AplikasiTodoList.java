@@ -1,7 +1,7 @@
 public class AplikasiTodoList {
 
 
-    //kapasitas
+    //kapasitas string
     public static String []  model = new String[10];
 
 
