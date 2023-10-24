@@ -7,7 +7,7 @@ public class AplikasiTodoList {
 
     public static void main(String[] args) {
 
-        testAddTodoList();
+        testRemoveTodoList();
 
     }
 
@@ -80,11 +80,35 @@ public class AplikasiTodoList {
             return false;
         }else {
             model [number - 1 ] = null;
+            for (int i = (number - 1); i < model.length; i++ ) {
+                if (i == (model.length - 1) ) {
+                    model [i] = null;
+                }else {
+                    model [i] = model[i + 1];
+                }
+            }
+
             return true;
         }
 
     }
 
+    public static void testRemoveTodoList(){
+        addTodoList("Satu");
+        addTodoList("Dua");
+        addTodoList("Tiga");
+
+        var result = removeTodoList(20);
+        System.out.println(result);
+
+        result = removeTodoList(4);
+        System.out.println(result);
+
+        result = removeTodoList(2);
+        System.out.println(result);
+
+        showTodoList();
+    }
 
 
     //menampilkan view  todo list
