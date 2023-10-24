@@ -8,12 +8,13 @@ public class AplikasiTodoList {
 
     public static void main(String[] args) {
 
-        testViewShowTodoList();
+        viewShowTodoList();
 
     }
 
     // menampilkan todo list
     public static void showTodoList(){
+        System.out.println("TODOLIST");
         for ( var i = 0; i < model.length; i++)
         {
             var todo = model[i];
@@ -164,13 +165,54 @@ public class AplikasiTodoList {
 
     //menampilkan view menambah todo list
     public static void viewAddTodoList(){
+        System.out.println("Menambah TodoList");
 
+        var todo = input("Todo (x jika batal)");
+
+        if (todo.equals("x")) {
+            //batal
+        }else {
+            addTodoList(todo);
+        }
+    }
+
+    public static void testViewAddTodoList () {
+
+        addTodoList("satu");
+        addTodoList("dua");
+
+        viewAddTodoList();
+        showTodoList();
     }
 
     //menampilkan view mengapus todo list
     public static void viewRemoveTodoList(){
+        System.out.println("Menghapus TOdoList");
 
+        var number = input("Nomor yang dihapus (x jika batal)");
 
+        if (number.equals("x")){
+            //batal
+        }else {
+           boolean success = removeTodoList(Integer.valueOf(number));
+           if (!success) {
+               System.out.println("Gagal menghapus todolist :" + number);
+           }
+        }
     }
 
+
+    public static void testViewRemoveTodoList () {
+        addTodoList("satu");
+        addTodoList("dua");
+        addTodoList("tiga");
+
+        showTodoList();
+
+
+        viewRemoveTodoList();
+
+        showTodoList();
+
+    }
 }
