@@ -4,10 +4,11 @@ public class AplikasiTodoList {
     //kapasitas string
     public static String []  model = new String[10];
 
+    public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
 
-        testRemoveTodoList();
+        testViewShowTodoList();
 
     }
 
@@ -97,11 +98,13 @@ public class AplikasiTodoList {
         addTodoList("Satu");
         addTodoList("Dua");
         addTodoList("Tiga");
+        addTodoList("Empat");
+        addTodoList("Lima");
 
         var result = removeTodoList(20);
         System.out.println(result);
 
-        result = removeTodoList(4);
+        result = removeTodoList(7);
         System.out.println(result);
 
         result = removeTodoList(2);
@@ -110,11 +113,53 @@ public class AplikasiTodoList {
         showTodoList();
     }
 
+    public static String input (String info){
+        System.out.print(info + " : ");
+        String data = scanner.nextLine();
+        return data;
+    }
+
+    public static void testInput () {
+        var nama = input("nama");
+        System.out.println(" Hi " + nama);
+
+        var channel = input("Channel");
+        System.out.println(channel);
+    }
 
     //menampilkan view  todo list
 
     public static void viewShowTodoList(){
 
+        while (true) {
+            showTodoList();
+
+            System.out.println("Menu : ");
+            System.out.println("1. Tambah ");
+            System.out.println("2. Hapus");
+            System.out.println("x. Keluar");
+
+            var input = input("Pilih");
+            if (input.equals("1")){
+                viewAddTodoList();
+            }else if (input.equals("2")) {
+                viewRemoveTodoList();
+            }else if (input.equals("x")) {
+                break;
+            }else {
+                System.out.println("pilihan tidak di temukan");
+            }
+        }
+
+    }
+
+    public static void testViewShowTodoList(){
+        addTodoList("satu");
+        addTodoList("dua");
+        addTodoList("ketiga");
+        addTodoList("empat");
+        addTodoList("lima");
+        viewShowTodoList();
     }
 
     //menampilkan view menambah todo list
